@@ -2,9 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import xml.etree.ElementTree as ET
-tree = ET.ElementTree(file='/Users/andreaks/berlin_1279_2.xml')
+import sys
+import codecs
+
+tree = ET.parse('/Users/andreaks/berlin_1306.xml')
 elem = tree.getroot()
-print elem.tag, elem.attrib
+
+import sys
+f = codecs.open('/Users/andreaks/berlin_1306.csv', 'w', encoding="utf-8")
+sys.stdout = f
 
 for child_of_elem in elem:
-    print child_of_elem.tag, child_of_elem.attrib
+    print child_of_elem.text,";",
